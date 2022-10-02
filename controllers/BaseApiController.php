@@ -2,7 +2,9 @@
 
 namespace app\controllers;
 
+use yii\filters\ContentNegotiator;
 use yii\rest\ActiveController;
+use yii\web\Response;
 
 class BaseApiController extends ActiveController
 {
@@ -24,11 +26,12 @@ class BaseApiController extends ActiveController
     public function behaviors() {
         return [
             'contentNegotiator' => [
-                'class' => \yii\filters\ContentNegotiator::class,
+                'class' => ContentNegotiator::class,
                 'formatParam' => '_format',
                 'formats' => [
-                    'application/json' => \yii\web\Response::FORMAT_JSON,
-                    'xml' => \yii\web\Response::FORMAT_XML
+                    'application/json' => Response::FORMAT_JSON,
+                    'xml' => Response::FORMAT_XML,
+
                 ],
             ],
         ];

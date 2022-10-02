@@ -50,6 +50,11 @@ class Order extends \yii\db\ActiveRecord
             'address' => 'Address',
         ];
     }
+    public function extraFields(){
+        return [
+            'product'
+        ];
+    }
 
     /**
      * @return Order|\yii\db\ActiveQuery
