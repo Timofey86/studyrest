@@ -13,6 +13,14 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+    'modules' => [
+        'v1' => [
+            'class' => 'app\modules\v1\Module',
+        ],
+        'v2'=>[
+            'class' => 'app\modules\v2\Module'
+        ],
+    ],
     'components' => [
         'request' => [
             'parsers' => [
@@ -56,14 +64,18 @@ $config = [
             'rules' => [
                 [
                 'class' => 'yii\rest\UrlRule',
-                'controller' => 'order',
-                'pluralize' => false
-                ],
-                [
-                'class' => 'yii\rest\UrlRule',
-                'controller' => 'product',
+                'controller' => ['order','product','v2/product'],
                 'pluralize' => false,
+//                    'extraPatterns' => [
+//                        'color' => 'getColor',
+//                        'POST color' => 'search',
+//                    ],
                 ],
+//                [
+//                'class' => 'yii\rest\UrlRule',
+//                'controller' => 'product',
+//                'pluralize' => false,
+//                ],
             ],
         ],
 

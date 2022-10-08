@@ -1,8 +1,8 @@
 <?php
 
-namespace app\controllers;
+namespace app\controllers\v2;
 
-use app\models\Order;
+use app\controllers\BaseApiController;
 use app\models\Product;
 use yii\helpers\ArrayHelper;
 
@@ -12,7 +12,7 @@ class ProductController extends BaseApiController
 
     public function actionColors()
     {
-        return ArrayHelper::map(Product::find()->select('color')->groupBy('color')->all(),'color','color');
+        return [12,144,625];
     }
 
 //    public function actions()
