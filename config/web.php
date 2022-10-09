@@ -36,6 +36,9 @@ $config = [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
         ],
+        'session' => [
+            'name' => 'front_s',
+        ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
@@ -64,18 +67,18 @@ $config = [
             'rules' => [
                 [
                 'class' => 'yii\rest\UrlRule',
-                'controller' => ['order','product','v2/product'],
+                'controller' => ['order','v1/product'=>'v1/product'],
                 'pluralize' => false,
 //                    'extraPatterns' => [
 //                        'color' => 'getColor',
 //                        'POST color' => 'search',
 //                    ],
                 ],
-//                [
-//                'class' => 'yii\rest\UrlRule',
-//                'controller' => 'product',
-//                'pluralize' => false,
-//                ],
+                [
+                'class' => 'yii\rest\UrlRule',
+                'controller' => ['v2/p'=>'v2/product'],
+                'pluralize' => false,
+                ],
             ],
         ],
 
